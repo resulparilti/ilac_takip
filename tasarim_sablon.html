@@ -1,0 +1,942 @@
+<!-- İlaç Paneli -->
+<html lang="tr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;overflow-x:hidden;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e3e2e6",
+                    "primary-fixed": "#d8e2ff",
+                    "on-tertiary-fixed-variant": "#930004",
+                    "on-surface": "#1a1b1e",
+                    "secondary-fixed": "#89fa9b",
+                    "on-secondary-container": "#00722f",
+                    "outline": "#727785",
+                    "on-tertiary-container": "#ffffff",
+                    "tertiary": "#bb1712",
+                    "on-surface-variant": "#414754",
+                    "surface-container-high": "#e9e7eb",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#005320",
+                    "surface-tint": "#005bc0",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#efedf1",
+                    "surface-bright": "#faf9fd",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb4a9",
+                    "surface-container-low": "#f4f3f7",
+                    "on-background": "#1a1b1e",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#004493",
+                    "on-primary-container": "#ffffff",
+                    "on-primary-fixed": "#001a41",
+                    "inverse-on-surface": "#f1f0f4",
+                    "primary": "#005bbf",
+                    "on-tertiary-fixed": "#410001",
+                    "background": "#faf9fd",
+                    "inverse-primary": "#adc7ff",
+                    "surface-dim": "#dbd9dd",
+                    "surface": "#faf9fd",
+                    "on-secondary-fixed": "#002108",
+                    "tertiary-fixed": "#ffdad5",
+                    "tertiary-container": "#df3429",
+                    "outline-variant": "#c1c6d6",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#adc7ff",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e3e2e6",
+                    "secondary-fixed-dim": "#6ddd81",
+                    "inverse-surface": "#2f3033",
+                    "primary-container": "#1a73e8",
+                    "secondary-container": "#86f898",
+                    "secondary": "#006e2c",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "tap-target-min": "48px",
+                    "stack-sm": "12px",
+                    "stack-lg": "48px",
+                    "margin-desktop": "64px",
+                    "stack-md": "24px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "display-lg": [
+                            "Atkinson Hyperlegible Next"
+                    ],
+                    "label-md": [
+                            "Atkinson Hyperlegible Next"
+                    ],
+                    "body-lg": [
+                            "Atkinson Hyperlegible Next"
+                    ],
+                    "label-lg": [
+                            "Atkinson Hyperlegible Next"
+                    ],
+                    "headline-lg": [
+                            "Atkinson Hyperlegible Next"
+                    ],
+                    "body-md": [
+                            "Atkinson Hyperlegible Next"
+                    ],
+                    "headline-md": [
+                            "Atkinson Hyperlegible Next"
+                    ]
+            },
+            "fontSize": {
+                    "display-lg": [
+                            "34px",
+                            {
+                                    "lineHeight": "44px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "20px",
+                            {
+                                    "lineHeight": "30px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "24px",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "28px",
+                            {
+                                    "lineHeight": "36px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script><style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+      </style>
+    </head><body class="bg-surface font-body-lg text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin-mobile flex items-center justify-between gap-4"><div class="flex items-center gap-3"><img alt="MedTrack Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVCbP9JpewTELEFMdsX8Vx-TY52jiVUQrUFjfbZEl1vRHMjNIeHmpmO92hBvfZvo_Yo1J3topjgEBni_3H-D1w5MGjauSNL8I5pIzxtASg2g4ySrEmm-e-df_ITfA953hQY5iS-7kpRyoJXKKY5VOTQaFabDzYSufpwbvMSp7xn-lDimUp8znb2V-sLnFnfS4bDUN13g0Rjwx9EEqibHwX2F2Mv8yMzdjR8UMijSsavGkX2vG4LzsD"/><span class="font-headline-lg text-headline-lg text-primary">İlaçlar</span></div><img alt="Profile" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr2FNtiol4ix74mSAuAaF3huJVkDgrESFSLoQ1VcPcwXHxHKpn0bxCg9ImgTs6aJIyXpZ4tsNAm-Ir6aeAiIMb1NEgUWzdqXq7siXfCwnismrvIcKf9gVChzM_AtjoZ9911oeaQqIt5kLl2ilEQHLc4p0ad7vivkUgDPDfa4LPwUcTKekZ7P-PJuPHkh_QOGyHjxLkornmdVvyRM3Uhyhu2M2le2QUdrVsDnUGp6HXra8ehfleJn1v"/></div></header><main class="relative w-full pt-20 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full min-w-0 max-w-[800px] mx-auto pb-stack-lg relative">
+    <!-- Sticky Calendar Header -->
+    <div class="sticky top-20 z-40 bg-surface/90 backdrop-blur-md px-margin-mobile py-stack-sm border-b border-surface-variant flex gap-2 overflow-x-auto snap-x snap-mandatory hide-scrollbar">
+    <!-- Day 1 -->
+    <div class="snap-start flex flex-col items-center justify-center min-w-[64px] h-[80px] rounded-lg bg-surface-container-low text-on-surface-variant">
+    <span class="font-label-lg text-label-lg">Pzt</span>
+    <span class="font-headline-lg text-headline-lg">12</span>
+    </div>
+    <!-- Day 2 -->
+    <div class="snap-start flex flex-col items-center justify-center min-w-[64px] h-[80px] rounded-lg bg-surface-container-low text-on-surface-variant">
+    <span class="font-label-lg text-label-lg">Sal</span>
+    <span class="font-headline-lg text-headline-lg">13</span>
+    </div>
+    <!-- Day 3 (Active) -->
+    <div class="snap-start flex flex-col items-center justify-center min-w-[64px] h-[80px] rounded-lg bg-primary text-on-primary shadow-md">
+    <span class="font-label-lg text-label-lg">Çar</span>
+    <span class="font-headline-lg text-headline-lg">14</span>
+    </div>
+    <!-- Day 4 -->
+    <div class="snap-start flex flex-col items-center justify-center min-w-[64px] h-[80px] rounded-lg bg-surface-container-low text-on-surface-variant">
+    <span class="font-label-lg text-label-lg">Per</span>
+    <span class="font-headline-lg text-headline-lg">15</span>
+    </div>
+    <!-- Day 5 -->
+    <div class="snap-start flex flex-col items-center justify-center min-w-[64px] h-[80px] rounded-lg bg-surface-container-low text-on-surface-variant">
+    <span class="font-label-lg text-label-lg">Cum</span>
+    <span class="font-headline-lg text-headline-lg">16</span>
+    </div>
+    <!-- Day 6 -->
+    <div class="snap-start flex flex-col items-center justify-center min-w-[64px] h-[80px] rounded-lg bg-surface-container-low text-on-surface-variant">
+    <span class="font-label-lg text-label-lg">Cmt</span>
+    <span class="font-headline-lg text-headline-lg">17</span>
+    </div>
+    <!-- Day 7 -->
+    <div class="snap-start flex flex-col items-center justify-center min-w-[64px] h-[80px] rounded-lg bg-surface-container-low text-on-surface-variant">
+    <span class="font-label-lg text-label-lg">Paz</span>
+    <span class="font-headline-lg text-headline-lg">18</span>
+    </div>
+    </div>
+    <!-- Content Area -->
+    <div class="flex flex-col gap-stack-md px-margin-mobile py-stack-md">
+    <!-- Morning Section -->
+    <section>
+    <h2 class="font-headline-md text-headline-md text-on-surface-variant mb-stack-sm flex items-center gap-2">
+    <span class="material-symbols-outlined text-primary text-[32px]">light_mode</span>
+            Sabah (08:00)
+          </h2>
+    <div class="flex flex-col gap-stack-sm">
+    <!-- Med Card 1 - Taken -->
+    <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm relative overflow-hidden flex flex-col gap-3 border border-outline-variant/20">
+    <div class="absolute left-0 top-0 bottom-0 w-2 bg-secondary"></div>
+    <div class="flex items-start justify-between gap-3 pl-3">
+    <div class="flex gap-3 items-center">
+    <div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+    <span class="material-symbols-outlined text-on-primary-container text-[32px]">pill</span>
+    </div>
+    <div class="flex flex-col">
+    <h3 class="font-headline-lg text-headline-lg text-on-surface">Atorvastatin</h3>
+    <span class="font-body-lg text-body-lg text-on-surface-variant">20mg • 1 Hap</span>
+    </div>
+    </div>
+    </div>
+    <div class="flex gap-2 pl-3 mt-1">
+    <div class="flex-1 flex items-center justify-center gap-2 bg-secondary-container text-on-secondary-container py-4 rounded-lg">
+    <span class="material-symbols-outlined font-bold text-[28px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+    <span class="font-label-lg text-label-lg">Alındı (08:15)</span>
+    </div>
+    </div>
+    </div>
+    <!-- Med Card 2 - Pending -->
+    <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm relative overflow-hidden flex flex-col gap-3 transition-transform active:scale-[0.98] border border-outline-variant/20">
+    <div class="absolute left-0 top-0 bottom-0 w-2 bg-primary"></div>
+    <div class="flex items-start justify-between gap-3 pl-3">
+    <div class="flex gap-3 items-center">
+    <div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+    <span class="material-symbols-outlined text-on-primary-container text-[32px]">vaccines</span>
+    </div>
+    <div class="flex flex-col">
+    <h3 class="font-headline-lg text-headline-lg text-on-surface">Lisinopril</h3>
+    <span class="font-body-lg text-body-lg text-on-surface-variant">10mg • 1 Tablet</span>
+    </div>
+    </div>
+    <span class="font-label-lg text-label-lg text-on-surface-variant bg-surface-container-highest px-3 py-1 rounded-full">08:00</span>
+    </div>
+    <div class="flex gap-2 pl-3 mt-1">
+    <button class="flex-1 flex items-center justify-center gap-2 bg-primary text-on-primary min-h-[64px] rounded-lg hover:bg-primary/90 transition-colors">
+    <span class="material-symbols-outlined font-bold text-[28px]">check</span>
+    <span class="font-label-lg text-label-lg">Alındı Olarak İşaretle</span>
+    </button>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Afternoon Section -->
+    <section>
+    <h2 class="font-headline-md text-headline-md text-on-surface-variant mb-stack-sm flex items-center gap-2 mt-stack-sm">
+    <span class="material-symbols-outlined text-primary text-[32px]">wb_sunny</span>
+            Öğle (13:00)
+          </h2>
+    <div class="flex flex-col gap-stack-sm">
+    <!-- Med Card 3 - Missed -->
+    <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm relative overflow-hidden flex flex-col gap-3 border border-outline-variant/20">
+    <div class="absolute left-0 top-0 bottom-0 w-2 bg-error"></div>
+    <div class="flex items-start justify-between gap-3 pl-3">
+    <div class="flex gap-3 items-center">
+    <div class="w-14 h-14 rounded-full bg-error-container flex items-center justify-center shrink-0">
+    <span class="material-symbols-outlined text-on-error-container text-[32px]">prescriptions</span>
+    </div>
+    <div class="flex flex-col">
+    <h3 class="font-headline-lg text-headline-lg text-on-surface">Metformin</h3>
+    <span class="font-body-lg text-body-lg text-on-surface-variant">500mg • Yemekle</span>
+    </div>
+    </div>
+    <span class="font-label-lg text-label-lg text-error bg-error-container/50 px-3 py-1 rounded-full flex items-center gap-1"><span class="material-symbols-outlined text-[20px]">warning</span> Gecikti</span>
+    </div>
+    <div class="flex gap-2 pl-3 mt-1">
+    <button class="flex-1 flex items-center justify-center gap-2 bg-transparent text-primary border-2 border-primary min-h-[64px] rounded-lg">
+    <span class="font-label-lg text-label-lg">Şimdi Al</span>
+    </button>
+    <button class="w-[64px] flex items-center justify-center gap-2 bg-surface-container-high text-on-surface-variant border-2 border-transparent min-h-[64px] rounded-lg">
+    <span class="material-symbols-outlined text-[28px]">more_horiz</span>
+    </button>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Ad Placeholder -->
+    <div class="mt-stack-lg mb-stack-sm flex flex-col items-center justify-center bg-surface-container-low rounded-xl p-4 min-h-[120px] border border-outline-variant/30">
+    <span class="font-label-lg text-label-lg text-on-surface-variant">Reklam</span>
+    <div class="w-full h-[80px] bg-surface-container-highest rounded-lg mt-2 flex items-center justify-center">
+    <span class="font-body-lg text-body-lg text-on-surface-variant/60">Sponsor Alanı</span>
+    </div>
+    </div>
+    </div>
+    <!-- FAB -->
+    <button class="fixed bottom-[104px] right-margin-mobile w-20 h-20 bg-primary text-on-primary rounded-2xl shadow-xl flex items-center justify-center hover:bg-primary/90 transition-transform active:scale-95 z-40">
+    <span class="material-symbols-outlined text-[40px] font-bold">add</span>
+    </button>
+    </div>
+    <script>
+      // Simple smooth scroll for calendar to keep active day somewhat centered
+      document.addEventListener('DOMContentLoaded', () => {
+        const calendar = document.querySelector('.snap-x');
+        const activeDay = calendar.querySelector('.bg-primary');
+        if (calendar && activeDay) {
+           calendar.scrollTo({
+             left: activeDay.offsetLeft - (calendar.clientWidth / 2) + (activeDay.clientWidth / 2),
+             behavior: 'smooth'
+           });
+        }
+      });
+    </script>
+    <style>
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/80 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)] border-t border-surface-variant/20" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-24 px-4"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[88px] min-h-[64px] transition-colors text-primary font-bold" data-path="medications" href="#"><span class="material-symbols-outlined text-[40px] mb-1">medical_services</span><span class="font-label-lg text-label-lg">İlaçlar</span></a><a class="flex flex-col items-center justify-center min-w-[88px] min-h-[64px] text-on-surface-variant transition-colors" data-path="water-intake" href="#"><span class="material-symbols-outlined text-[40px] mb-1">water_drop</span><span class="font-label-lg text-label-lg">Su</span></a><a class="flex flex-col items-center justify-center min-w-[88px] min-h-[64px] text-on-surface-variant transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[40px] mb-1">settings</span><span class="font-label-lg text-label-lg">Ayarlar</span></a></div></nav></body></html>
+    
+    <!-- Su Takibi -->
+    <html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;overflow-x:hidden;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e3e2e6",
+                    "primary-fixed": "#d8e2ff",
+                    "on-tertiary-fixed-variant": "#930004",
+                    "on-surface": "#1a1b1e",
+                    "secondary-fixed": "#89fa9b",
+                    "on-secondary-container": "#00722f",
+                    "outline": "#727785",
+                    "on-tertiary-container": "#ffffff",
+                    "tertiary": "#bb1712",
+                    "on-surface-variant": "#414754",
+                    "surface-container-high": "#e9e7eb",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#005320",
+                    "surface-tint": "#005bc0",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#efedf1",
+                    "surface-bright": "#faf9fd",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb4a9",
+                    "surface-container-low": "#f4f3f7",
+                    "on-background": "#1a1b1e",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#004493",
+                    "on-primary-container": "#ffffff",
+                    "on-primary-fixed": "#001a41",
+                    "inverse-on-surface": "#f1f0f4",
+                    "primary": "#005bbf",
+                    "on-tertiary-fixed": "#410001",
+                    "background": "#faf9fd",
+                    "inverse-primary": "#adc7ff",
+                    "surface-dim": "#dbd9dd",
+                    "surface": "#faf9fd",
+                    "on-secondary-fixed": "#002108",
+                    "tertiary-fixed": "#ffdad5",
+                    "tertiary-container": "#df3429",
+                    "outline-variant": "#c1c6d6",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#adc7ff",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e3e2e6",
+                    "secondary-fixed-dim": "#6ddd81",
+                    "inverse-surface": "#2f3033",
+                    "primary-container": "#1a73e8",
+                    "secondary-container": "#86f898",
+                    "secondary": "#006e2c",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "tap-target-min": "48px",
+                    "stack-sm": "12px",
+                    "stack-lg": "48px",
+                    "margin-desktop": "64px",
+                    "stack-md": "24px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "display-lg": [
+                            "Atkinson Hyperlegible Next"
+                    ],
+                    "label-md": [
+                            "Atkinson Hyperlegible Next"
+                    ],
+                    "body-lg": [
+                            "Atkinson Hyperlegible Next"
+                    ],
+                    "label-lg": [
+                            "Atkinson Hyperlegible Next"
+                    ],
+                    "headline-lg": [
+                            "Atkinson Hyperlegible Next"
+                    ],
+                    "body-md": [
+                            "Atkinson Hyperlegible Next"
+                    ],
+                    "headline-md": [
+                            "Atkinson Hyperlegible Next"
+                    ]
+            },
+            "fontSize": {
+                    "display-lg": [
+                            "34px",
+                            {
+                                    "lineHeight": "44px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "20px",
+                            {
+                                    "lineHeight": "30px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "24px",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "28px",
+                            {
+                                    "lineHeight": "36px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script><style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+      </style>
+    </head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin-mobile flex items-center justify-between gap-4"><div class="flex items-center gap-3"><img alt="MedTrack Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVCbP9JpewTELEFMdsX8Vx-TY52jiVUQrUFjfbZEl1vRHMjNIeHmpmO92hBvfZvo_Yo1J3topjgEBni_3H-D1w5MGjauSNL8I5pIzxtASg2g4ySrEmm-e-df_ITfA953hQY5iS-7kpRyoJXKKY5VOTQaFabDzYSufpwbvMSp7xn-lDimUp8znb2V-sLnFnfS4bDUN13g0Rjwx9EEqibHwX2F2Mv8yMzdjR8UMijSsavGkX2vG4LzsD"/><span class="font-headline-md text-headline-md text-primary">Su Takibi</span></div><img alt="Profile" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr2FNtiol4ix74mSAuAaF3huJVkDgrESFSLoQ1VcPcwXHxHKpn0bxCg9ImgTs6aJIyXpZ4tsNAm-Ir6aeAiIMb1NEgUWzdqXq7siXfCwnismrvIcKf9gVChzM_AtjoZ9911oeaQqIt5kLl2ilEQHLc4p0ad7vivkUgDPDfa4LPwUcTKekZ7P-PJuPHkh_QOGyHjxLkornmdVvyRM3Uhyhu2M2le2QUdrVsDnUGp6HXra8ehfleJn1v"/></div></header><main class="relative w-full pt-20 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin-mobile gap-stack-lg items-center max-w-[800px] mx-auto">
+    <div class="flex flex-col items-center gap-stack-md w-full pt-stack-md">
+    <div class="inline-flex items-center gap-2 bg-primary-fixed text-on-primary-fixed px-4 py-2 rounded-full shadow-sm">
+    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+    <span class="font-label-md text-label-md">Premium Özellik</span>
+    </div>
+    <div class="relative w-64 h-64 flex items-center justify-center">
+    <svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+    <circle class="text-surface-container-highest" cx="50" cy="50" fill="transparent" r="45" stroke="currentColor" stroke-width="8"></circle>
+    <circle class="text-primary transition-all duration-1000 ease-out" cx="50" cy="50" fill="transparent" r="45" stroke="currentColor" stroke-dasharray="282.7" stroke-dashoffset="113.08" stroke-linecap="round" stroke-width="8"></circle>
+    </svg>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+    <span class="font-display-lg text-display-lg text-primary">1.8L</span>
+    <span class="font-body-md text-body-md text-on-surface-variant">/ 3.0L hedef</span>
+    </div>
+    </div>
+    <button class="w-full max-w-[320px] min-h-[56px] bg-primary text-on-primary font-label-lg text-label-lg rounded-xl shadow-md flex items-center justify-center gap-3 transition-transform active:scale-95">
+    <span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">local_drink</span>
+          + 250ml Bardak
+        </button>
+    </div>
+    <div class="w-full flex flex-col gap-stack-sm">
+    <h2 class="font-headline-md text-headline-md text-on-surface mb-2">Bugünkü Hatırlatıcılar</h2>
+    <div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 relative overflow-hidden">
+    <div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary rounded-l-xl"></div>
+    <div class="flex flex-col gap-1 pl-2">
+    <span class="font-label-lg text-label-lg text-on-surface">Sabah Su İçme</span>
+    <span class="font-body-md text-body-md text-on-surface-variant">08:00</span>
+    </div>
+    <label class="relative inline-flex items-center cursor-pointer min-h-tap-target-min min-w-tap-target-min justify-end">
+    <input checked="" class="sr-only peer" type="checkbox" value=""/>
+    <div class="w-14 h-8 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-7 after:w-7 after:transition-all peer-checked:bg-secondary shadow-inner"></div>
+    </label>
+    </div>
+    <div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 relative overflow-hidden">
+    <div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary rounded-l-xl"></div>
+    <div class="flex flex-col gap-1 pl-2">
+    <span class="font-label-lg text-label-lg text-on-surface">Öğle Yemeği Sonrası</span>
+    <span class="font-body-md text-body-md text-on-surface-variant">14:30</span>
+    </div>
+    <label class="relative inline-flex items-center cursor-pointer min-h-tap-target-min min-w-tap-target-min justify-end">
+    <input checked="" class="sr-only peer" type="checkbox" value=""/>
+    <div class="w-14 h-8 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-7 after:w-7 after:transition-all peer-checked:bg-secondary shadow-inner"></div>
+    </label>
+    </div>
+    <div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 relative overflow-hidden opacity-75">
+    <div class="absolute left-0 top-0 bottom-0 w-1 bg-surface-container-highest rounded-l-xl"></div>
+    <div class="flex flex-col gap-1 pl-2">
+    <span class="font-label-lg text-label-lg text-on-surface">Akşam Rahatlaması</span>
+    <span class="font-body-md text-body-md text-on-surface-variant">20:00</span>
+    </div>
+    <label class="relative inline-flex items-center cursor-pointer min-h-tap-target-min min-w-tap-target-min justify-end">
+    <input class="sr-only peer" type="checkbox" value=""/>
+    <div class="w-14 h-8 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-7 after:w-7 after:transition-all peer-checked:bg-secondary shadow-inner"></div>
+    </label>
+    </div>
+    </div>
+    </div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/80 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-20 px-4"><a class="flex flex-col items-center justify-center min-w-[72px] min-h-tap-target-min text-on-surface-variant transition-colors" data-path="medications" href="#"><span class="material-symbols-outlined text-[32px]">medical_services</span><span class="font-label-md text-label-md">İlaçlar</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[72px] min-h-tap-target-min transition-colors text-primary font-bold" data-path="water-intake" href="#"><span class="material-symbols-outlined text-[32px]">water_drop</span><span class="font-label-md text-label-md">Su</span></a><a class="flex flex-col items-center justify-center min-w-[72px] min-h-tap-target-min text-on-surface-variant transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[32px]">settings</span><span class="font-label-md text-label-md">Ayarlar</span></a></div></nav></body></html>
+    
+    <!-- Ayarlar ve Acil Durumlar -->
+    <html lang="tr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;overflow-x:hidden;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","on-primary-fixed-variant":"#004493","primary-fixed-dim":"#adc7ff","on-secondary-fixed-variant":"#005320","tertiary-fixed":"#ffdad5","tertiary-container":"#df3429","primary-fixed":"#d8e2ff","outline-variant":"#c1c6d6","surface-container":"#efedf1","surface-bright":"#faf9fd","secondary":"#006e2c","on-tertiary-fixed":"#410001","primary-container":"#1a73e8","inverse-primary":"#adc7ff","on-secondary":"#ffffff","background":"#faf9fd","tertiary-fixed-dim":"#ffb4a9","outline":"#727785","on-surface-variant":"#414754","secondary-container":"#86f898","on-secondary-fixed":"#002108","surface-container-low":"#f4f3f7","surface-container-high":"#e9e7eb","inverse-on-surface":"#f1f0f4","on-background":"#1a1b1e","error":"#ba1a1a","error-container":"#ffdad6","on-secondary-container":"#00722f","secondary-fixed-dim":"#6ddd81","surface-container-highest":"#e3e2e6","secondary-fixed":"#89fa9b","surface":"#faf9fd","on-surface":"#1a1b1e","surface-variant":"#e3e2e6","inverse-surface":"#2f3033","on-tertiary-fixed-variant":"#930004","on-tertiary-container":"#ffffff","surface-tint":"#005bc0","on-primary-container":"#ffffff","on-error-container":"#93000a","on-error":"#ffffff","on-primary":"#ffffff","surface-dim":"#dbd9dd","on-primary-fixed":"#001a41","tertiary":"#bb1712","primary":"#005bbf"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"stack-sm":"12px","stack-lg":"48px","margin-desktop":"64px","stack-md":"24px","margin-mobile":"20px","gutter":"24px","tap-target-min":"48px"},"fontFamily":{"headline-md":["Atkinson Hyperlegible Next"],"headline-lg":["Atkinson Hyperlegible Next"],"label-md":["Atkinson Hyperlegible Next"],"display-lg":["Atkinson Hyperlegible Next"],"body-md":["Atkinson Hyperlegible Next"],"label-lg":["Atkinson Hyperlegible Next"],"body-lg":["Atkinson Hyperlegible Next"]},"fontSize":{"headline-md":["24px",{"lineHeight":"32px","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","fontWeight":"700"}],"label-md":["16px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"600"}],"display-lg":["34px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"700"}],"body-md":["18px",{"lineHeight":"28px","fontWeight":"400"}],"label-lg":["18px",{"lineHeight":"24px","letterSpacing":"0.02em","fontWeight":"600"}],"body-lg":["20px",{"lineHeight":"30px","fontWeight":"400"}]}}}}</script><style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+      </style>
+    </head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin-mobile flex items-center justify-between gap-4"><div class="flex items-center gap-3"><img alt="MedTrack Logosu" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVCbP9JpewTELEFMdsX8Vx-TY52jiVUQrUFjfbZEl1vRHMjNIeHmpmO92hBvfZvo_Yo1J3topjgEBni_3H-D1w5MGjauSNL8I5pIzxtASg2g4ySrEmm-e-df_ITfA953hQY5iS-7kpRyoJXKKY5VOTQaFabDzYSufpwbvMSp7xn-lDimUp8znb2V-sLnFnfS4bDUN13g0Rjwx9EEqibHwX2F2Mv8yMzdjR8UMijSsavGkX2vG4LzsD"/><span class="font-headline-md text-headline-md text-primary">Ayarlar</span></div><img alt="Profil" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr2FNtiol4ix74mSAuAaF3huJVkDgrESFSLoQ1VcPcwXHxHKpn0bxCg9ImgTs6aJIyXpZ4tsNAm-Ir6aeAiIMb1NEgUWzdqXq7siXfCwnismrvIcKf9gVChzM_AtjoZ9911oeaQqIt5kLl2ilEQHLc4p0ad7vivkUgDPDfa4LPwUcTKekZ7P-PJuPHkh_QOGyHjxLkornmdVvyRM3Uhyhu2M2le2QUdrVsDnUGp6HXra8ehfleJn1v"/></div></header><main class="relative w-full pt-20 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full max-w-[800px] mx-auto px-margin-mobile gap-stack-md pt-stack-sm pb-stack-lg">
+    <div class="flex flex-col gap-stack-sm">
+    <h2 class="font-headline-md text-headline-md text-on-surface">Uygulama Ayarları</h2>
+    <p class="font-body-lg text-body-lg text-on-surface-variant">MedTrack'in görünümünü ve hissini ihtiyaçlarınıza göre ayarlayın.</p>
+    </div>
+    <section class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border border-outline-variant/30 flex flex-col gap-stack-md">
+    <div class="flex items-center justify-between min-h-tap-target-min">
+    <div class="flex flex-col">
+    <span class="font-label-lg text-label-lg text-on-surface">Karanlık Mod</span>
+    <span class="font-body-md text-body-md text-on-surface-variant">Geceleri gözleri daha az yorar</span>
+    </div>
+    <label class="relative inline-flex items-center cursor-pointer min-h-tap-target-min min-w-[48px] justify-center">
+    <input class="sr-only peer" type="checkbox" value=""/>
+    <div class="w-14 h-7 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[10px] after:left-[8px] after:bg-white after:border-outline after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary shadow-inner"></div>
+    </label>
+    </div>
+    <hr class="border-t border-outline-variant/30"/>
+    <div class="flex flex-col gap-stack-sm py-2">
+    <div class="flex flex-col">
+    <span class="font-label-lg text-label-lg text-on-surface">Metin Boyutu</span>
+    <span class="font-body-md text-body-md text-on-surface-variant">Metni daha büyük ve okunması daha kolay yapın</span>
+    </div>
+    <div class="flex items-center gap-4 mt-2">
+    <span class="font-body-md text-body-md text-on-surface font-bold text-sm">A</span>
+    <input aria-label="Metin boyutunu ayarla" class="w-full h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" max="3" min="1" type="range" value="2"/>
+    <span class="font-headline-md text-headline-md text-on-surface font-bold text-2xl">A</span>
+    </div>
+    </div>
+    <hr class="border-t border-outline-variant/30"/>
+    <div class="flex flex-col gap-stack-sm py-2">
+    <div class="flex flex-col">
+    <span class="font-label-lg text-label-lg text-on-surface">Dil Seçeneği</span>
+    <span class="font-body-md text-body-md text-on-surface-variant">Uygulama dilini seçin</span>
+    </div>
+    <div class="relative mt-2">
+    <select aria-label="Dil Seçeneği" class="w-full appearance-none bg-surface-container-lowest border border-outline-variant/50 text-on-surface text-label-lg font-label-lg rounded-lg min-h-tap-target-min px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+    <option value="tr">Türkçe</option>
+    <option value="en">İngilizce</option>
+    <option value="de">Almanca</option>
+    <option value="es">İspanyolca</option>
+    </select>
+    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-on-surface-variant">
+    <span class="material-symbols-outlined">expand_more</span>
+    </div>
+    </div>
+    </div>
+    </section>
+    <div class="flex flex-col gap-stack-sm mt-stack-md">
+    <div class="flex items-center gap-2">
+    <span class="material-symbols-outlined text-error text-[32px]">emergency</span>
+    <h2 class="font-headline-md text-headline-md text-error">Acil Durum Kişileri</h2>
+    </div>
+    <p class="font-body-lg text-body-lg text-on-surface-variant">Üst üste iki kez ilaç almayı unutursanız bu kişilere otomatik olarak haber verilecektir.</p>
+    </div>
+    <section class="bg-error-container/20 rounded-xl p-4 shadow-sm border border-error-container flex flex-col gap-stack-md">
+    <div class="flex items-center justify-between bg-surface-container-lowest p-4 rounded-lg shadow-sm border border-outline-variant/20">
+    <div class="flex items-center gap-4">
+    <div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-headline-md text-headline-md">
+              SM
+            </div>
+    <div class="flex flex-col">
+    <span class="font-headline-md text-headline-md text-on-surface">Sarah Miller</span>
+    <span class="font-body-md text-body-md text-on-surface-variant">Kızı • (555) 123-4567</span>
+    </div>
+    </div>
+    <button aria-label="WhatsApp'ta Sarah Miller'a mesaj gönder" class="min-w-tap-target-min min-h-tap-target-min flex items-center justify-center rounded-full bg-surface-variant text-on-surface hover:bg-secondary-container hover:text-on-secondary-container transition-colors">
+    <svg fill="currentColor" height="28" viewbox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"></path></svg>
+    </button>
+    </div>
+    <div class="flex items-center justify-between bg-surface-container-lowest p-4 rounded-lg shadow-sm border border-outline-variant/20">
+    <div class="flex items-center gap-4">
+    <div class="w-14 h-14 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container font-headline-md text-headline-md">
+              JD
+            </div>
+    <div class="flex flex-col">
+    <span class="font-headline-md text-headline-md text-on-surface">John Doe</span>
+    <span class="font-body-md text-body-md text-on-surface-variant">Oğlu • (555) 987-6543</span>
+    </div>
+    </div>
+    <button aria-label="WhatsApp'ta John Doe'ya mesaj gönder" class="min-w-tap-target-min min-h-tap-target-min flex items-center justify-center rounded-full bg-surface-variant text-on-surface hover:bg-secondary-container hover:text-on-secondary-container transition-colors">
+    <svg fill="currentColor" height="28" viewbox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"></path></svg>
+    </button>
+    </div>
+    <button class="mt-2 min-h-[56px] w-full flex items-center justify-center gap-2 rounded-lg border-2 border-primary text-primary font-label-lg text-label-lg hover:bg-primary-container/10 transition-colors">
+    <span class="material-symbols-outlined text-[28px]">person_add</span>
+          Başka Kişi Ekle
+        </button>
+    </section>
+    <div class="flex flex-col gap-stack-sm mt-stack-md pb-12">
+    <button class="min-h-[56px] w-full flex items-center justify-between px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-sm text-left">
+    <span class="font-label-lg text-label-lg text-on-surface">Veri &amp; Gizlilik</span>
+    <span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+    </button>
+    <button class="min-h-[56px] w-full flex items-center justify-between px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-sm text-left">
+    <span class="font-label-lg text-label-lg text-on-surface">Yardım &amp; Destek</span>
+    <span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+    </button>
+    </div>
+    </div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/80 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-20 px-4"><a class="flex flex-col items-center justify-center min-w-[72px] min-h-tap-target-min text-on-surface-variant transition-colors" data-path="medications" href="#"><span class="material-symbols-outlined text-[32px]">medical_services</span><span class="font-label-md text-label-md">İlaçlar</span></a><a class="flex flex-col items-center justify-center min-w-[72px] min-h-tap-target-min text-on-surface-variant transition-colors" data-path="water-intake" href="#"><span class="material-symbols-outlined text-[32px]">water_drop</span><span class="font-label-md text-label-md">Su</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[72px] min-h-tap-target-min transition-colors text-primary font-bold" data-path="settings" href="#"><span class="material-symbols-outlined text-[32px]">settings</span><span class="font-label-md text-label-md">Ayarlar</span></a></div></nav></body></html>
+    
+    <!-- Alarmlar -->
+    <html lang="tr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;overflow-x:hidden;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","on-primary-fixed-variant":"#004493","primary-fixed-dim":"#adc7ff","on-secondary-fixed-variant":"#005320","tertiary-fixed":"#ffdad5","tertiary-container":"#df3429","primary-fixed":"#d8e2ff","outline-variant":"#c1c6d6","surface-container":"#efedf1","surface-bright":"#faf9fd","secondary":"#006e2c","on-tertiary-fixed":"#410001","primary-container":"#1a73e8","inverse-primary":"#adc7ff","on-secondary":"#ffffff","background":"#faf9fd","tertiary-fixed-dim":"#ffb4a9","outline":"#727785","on-surface-variant":"#414754","secondary-container":"#86f898","on-secondary-fixed":"#002108","surface-container-low":"#f4f3f7","surface-container-high":"#e9e7eb","inverse-on-surface":"#f1f0f4","on-background":"#1a1b1e","error":"#ba1a1a","error-container":"#ffdad6","on-secondary-container":"#00722f","secondary-fixed-dim":"#6ddd81","surface-container-highest":"#e3e2e6","secondary-fixed":"#89fa9b","surface":"#faf9fd","on-surface":"#1a1b1e","surface-variant":"#e3e2e6","inverse-surface":"#2f3033","on-tertiary-fixed-variant":"#930004","on-tertiary-container":"#ffffff","surface-tint":"#005bc0","on-primary-container":"#ffffff","on-error-container":"#93000a","on-error":"#ffffff","on-primary":"#ffffff","surface-dim":"#dbd9dd","on-primary-fixed":"#001a41","tertiary":"#bb1712","primary":"#005bbf"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"stack-sm":"12px","stack-lg":"48px","margin-desktop":"64px","stack-md":"24px","margin-mobile":"20px","gutter":"24px","tap-target-min":"48px"},"fontFamily":{"headline-md":["Atkinson Hyperlegible Next"],"headline-lg":["Atkinson Hyperlegible Next"],"label-md":["Atkinson Hyperlegible Next"],"display-lg":["Atkinson Hyperlegible Next"],"body-md":["Atkinson Hyperlegible Next"],"label-lg":["Atkinson Hyperlegible Next"],"body-lg":["Atkinson Hyperlegible Next"]},"fontSize":{"headline-md":["24px",{"lineHeight":"32px","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","fontWeight":"700"}],"label-md":["16px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"600"}],"display-lg":["34px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"700"}],"body-md":["18px",{"lineHeight":"28px","fontWeight":"400"}],"label-lg":["18px",{"lineHeight":"24px","letterSpacing":"0.02em","fontWeight":"600"}],"body-lg":["20px",{"lineHeight":"30px","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin-mobile flex items-center gap-4"><a class="w-12 h-12 flex items-center justify-center -ml-2 text-on-surface-variant" href="#" onclick="history.back()"><span class="material-symbols-outlined text-[32px]">arrow_back</span></a><span class="font-headline-md text-headline-md text-primary">Alarmlar</span></div></header><main class="relative w-full pt-20 pb-12 bg-surface min-h-screen"><div class="flex flex-col w-full max-w-[800px] mx-auto px-margin-mobile gap-stack-md pb-stack-lg">
+    <!-- Header Section -->
+    <div class="flex items-center justify-between mt-stack-sm mb-stack-sm">
+    <div>
+    <h1 class="font-display-lg text-display-lg text-on-surface">Hatırlatıcılar</h1>
+    <p class="font-body-md text-body-md text-on-surface-variant mt-1">İlaç ve su hatırlatıcılarınız</p>
+    </div>
+    <button aria-label="Yeni Alarm Ekle" class="min-w-tap-target-min min-h-tap-target-min flex items-center justify-center bg-primary text-on-primary rounded-full shadow-md active:scale-95 transition-transform">
+    <span class="material-symbols-outlined text-[32px]">add</span>
+    </button>
+    </div>
+    <!-- Active Alarm 1 -->
+    <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm relative overflow-hidden transition-all group">
+    <div class="absolute left-0 top-0 bottom-0 w-2 bg-secondary rounded-l-xl"></div>
+    <div class="flex items-start justify-between ml-2">
+    <div class="flex flex-col">
+    <span class="font-headline-lg text-headline-lg text-on-surface tracking-tight">08:00</span>
+    <span class="font-headline-md text-headline-md text-on-surface-variant mt-1">Sabah İlaçları</span>
+    <div class="flex gap-2 mt-4 flex-wrap">
+    <span class="inline-flex items-center justify-center px-3 py-1 bg-primary text-on-primary rounded-full font-label-md text-label-md">Pzt</span>
+    <span class="inline-flex items-center justify-center px-3 py-1 bg-primary text-on-primary rounded-full font-label-md text-label-md">Sal</span>
+    <span class="inline-flex items-center justify-center px-3 py-1 bg-primary text-on-primary rounded-full font-label-md text-label-md">Çar</span>
+    <span class="inline-flex items-center justify-center px-3 py-1 bg-primary text-on-primary rounded-full font-label-md text-label-md">Per</span>
+    <span class="inline-flex items-center justify-center px-3 py-1 bg-primary text-on-primary rounded-full font-label-md text-label-md">Cum</span>
+    <span class="inline-flex items-center justify-center px-3 py-1 bg-surface-container text-on-surface-variant rounded-full font-label-md text-label-md">Cmt</span>
+    <span class="inline-flex items-center justify-center px-3 py-1 bg-surface-container text-on-surface-variant rounded-full font-label-md text-label-md">Paz</span>
+    </div>
+    <div class="flex items-center gap-2 mt-3 text-secondary">
+    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">medication</span>
+    <span class="font-body-md text-body-md text-on-surface">Tansiyon İlacı (1 Adet)</span>
+    </div>
+    </div>
+    <label aria-label="Sabah İlaçları Alarmını Kapat" class="relative inline-flex items-center cursor-pointer min-h-tap-target-min min-w-tap-target-min justify-center">
+    <input checked="" class="sr-only peer" type="checkbox"/>
+    <div class="w-14 h-7 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-secondary"></div>
+    </label>
+    </div>
+    </div>
+    <!-- Active Alarm 2 -->
+    <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm relative overflow-hidden transition-all group">
+    <div class="absolute left-0 top-0 bottom-0 w-2 bg-secondary rounded-l-xl"></div>
+    <div class="flex items-start justify-between ml-2">
+    <div class="flex flex-col">
+    <span class="font-headline-lg text-headline-lg text-on-surface tracking-tight">13:30</span>
+    <span class="font-headline-md text-headline-md text-on-surface-variant mt-1">Öğle Yemeği Suyu</span>
+    <div class="flex gap-2 mt-4 flex-wrap">
+    <span class="inline-flex items-center justify-center px-3 py-1 bg-primary text-on-primary rounded-full font-label-md text-label-md">Her Gün</span>
+    </div>
+    <div class="flex items-center gap-2 mt-3 text-primary">
+    <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+    <span class="font-body-md text-body-md text-on-surface">1 Bardak Su</span>
+    </div>
+    </div>
+    <label aria-label="Öğle Yemeği Suyu Alarmını Kapat" class="relative inline-flex items-center cursor-pointer min-h-tap-target-min min-w-tap-target-min justify-center">
+    <input checked="" class="sr-only peer" type="checkbox"/>
+    <div class="w-14 h-7 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-secondary"></div>
+    </label>
+    </div>
+    </div>
+    <!-- Inactive Alarm -->
+    <div class="bg-surface-container-low border border-outline-variant/50 rounded-xl p-4 shadow-sm relative overflow-hidden transition-all opacity-75">
+    <div class="absolute left-0 top-0 bottom-0 w-2 bg-outline-variant rounded-l-xl"></div>
+    <div class="flex items-start justify-between ml-2">
+    <div class="flex flex-col">
+    <span class="font-headline-lg text-headline-lg text-on-surface-variant tracking-tight line-through decoration-2">20:00</span>
+    <span class="font-headline-md text-headline-md text-on-surface-variant mt-1">Akşam İlacı</span>
+    <div class="flex gap-2 mt-4 flex-wrap opacity-50">
+    <span class="inline-flex items-center justify-center px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-md text-label-md">Her Gün</span>
+    </div>
+    </div>
+    <label aria-label="Akşam İlacı Alarmını Aç" class="relative inline-flex items-center cursor-pointer min-h-tap-target-min min-w-tap-target-min justify-center">
+    <input class="sr-only peer" type="checkbox"/>
+    <div class="w-14 h-7 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-secondary"></div>
+    </label>
+    </div>
+    </div>
+    <!-- Empty State Hint (Hidden if alarms exist, but good for context) -->
+    <!--
+        <div class="flex flex-col items-center justify-center py-stack-lg text-center bg-surface-container-lowest rounded-xl border border-dashed border-outline-variant mt-4">
+            <span class="material-symbols-outlined text-[64px] text-primary mb-4" style="font-variation-settings: 'FILL' 1;">alarm_add</span>
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Henüz Alarm Yok</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant max-w-[250px]">İlaçlarınızı ve su tüketiminizi takip etmek için yeni bir alarm ekleyin.</p>
+        </div>
+        -->
+    </div></main></body></html>
+    
+    <!-- Bildirimler -->
+    <html lang="tr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;overflow-x:hidden;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","on-primary-fixed-variant":"#004493","primary-fixed-dim":"#adc7ff","on-secondary-fixed-variant":"#005320","tertiary-fixed":"#ffdad5","tertiary-container":"#df3429","primary-fixed":"#d8e2ff","outline-variant":"#c1c6d6","surface-container":"#efedf1","surface-bright":"#faf9fd","secondary":"#006e2c","on-tertiary-fixed":"#410001","primary-container":"#1a73e8","inverse-primary":"#adc7ff","on-secondary":"#ffffff","background":"#faf9fd","tertiary-fixed-dim":"#ffb4a9","outline":"#727785","on-surface-variant":"#414754","secondary-container":"#86f898","on-secondary-fixed":"#002108","surface-container-low":"#f4f3f7","surface-container-high":"#e9e7eb","inverse-on-surface":"#f1f0f4","on-background":"#1a1b1e","error":"#ba1a1a","error-container":"#ffdad6","on-secondary-container":"#00722f","secondary-fixed-dim":"#6ddd81","surface-container-highest":"#e3e2e6","secondary-fixed":"#89fa9b","surface":"#faf9fd","on-surface":"#1a1b1e","surface-variant":"#e3e2e6","inverse-surface":"#2f3033","on-tertiary-fixed-variant":"#930004","on-tertiary-container":"#ffffff","surface-tint":"#005bc0","on-primary-container":"#ffffff","on-error-container":"#93000a","on-error":"#ffffff","on-primary":"#ffffff","surface-dim":"#dbd9dd","on-primary-fixed":"#001a41","tertiary":"#bb1712","primary":"#005bbf"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"stack-sm":"12px","stack-lg":"48px","margin-desktop":"64px","stack-md":"24px","margin-mobile":"20px","gutter":"24px","tap-target-min":"48px"},"fontFamily":{"headline-md":["Atkinson Hyperlegible Next"],"headline-lg":["Atkinson Hyperlegible Next"],"label-md":["Atkinson Hyperlegible Next"],"display-lg":["Atkinson Hyperlegible Next"],"body-md":["Atkinson Hyperlegible Next"],"label-lg":["Atkinson Hyperlegible Next"],"body-lg":["Atkinson Hyperlegible Next"]},"fontSize":{"headline-md":["24px",{"lineHeight":"32px","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","fontWeight":"700"}],"label-md":["16px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"600"}],"display-lg":["34px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"700"}],"body-md":["18px",{"lineHeight":"28px","fontWeight":"400"}],"label-lg":["18px",{"lineHeight":"24px","letterSpacing":"0.02em","fontWeight":"600"}],"body-lg":["20px",{"lineHeight":"30px","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin-mobile flex items-center gap-4"><a class="w-12 h-12 flex items-center justify-center -ml-2 text-on-surface-variant" href="#" onclick="history.back()"><span class="material-symbols-outlined text-[32px]">arrow_back</span></a><span class="font-headline-md text-headline-md text-primary">Bildirimler</span></div></header><main class="relative w-full pt-20 pb-12 bg-surface min-h-screen"><div class="flex flex-col w-full max-w-[800px] mx-auto px-margin-mobile md:px-margin-desktop py-stack-md gap-stack-lg">
+    <!-- Header Action -->
+    <div class="flex items-center justify-between w-full">
+    <h1 class="font-display-lg text-display-lg text-on-surface">Bildirimler</h1>
+    <button class="min-h-[48px] px-4 rounded-lg border-2 border-outline text-primary font-label-lg flex items-center gap-2 hover:bg-surface-container-low transition-colors focus:ring-4 focus:ring-primary/20 outline-none">
+    <span class="material-symbols-outlined">done_all</span>
+    <span class="hidden md:inline">Tümünü Okundu İşaretle</span>
+    <span class="md:hidden">Okundu İşaretle</span>
+    </button>
+    </div>
+    <!-- Notifications List -->
+    <div class="flex flex-col gap-stack-sm">
+    <!-- Unread Notification: High Priority -->
+    <div class="bg-surface-container-lowest rounded-xl p-4 shadow-[0_4px_12px_rgba(0,0,0,0.08)] border border-error-container relative overflow-hidden flex gap-4 items-start group">
+    <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-error"></div>
+    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
+    <span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+    </div>
+    <div class="flex-1 min-w-0">
+    <div class="flex justify-between items-start gap-2 mb-1">
+    <h2 class="font-headline-md text-headline-md text-on-surface truncate">İlaç Saati Geldi</h2>
+    <span class="font-label-md text-label-md text-on-surface-variant flex-shrink-0">Şimdi</span>
+    </div>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mb-3">Tansiyon ilacınızı (Lisinopril 10mg) alma vaktiniz geldi. Lütfen tok karnına alınız.</p>
+    <div class="flex gap-3">
+    <button class="min-h-[48px] px-6 bg-primary text-on-primary rounded-lg font-label-lg flex-1 md:flex-none hover:bg-primary/90 transition-colors">
+                Aldım
+              </button>
+    <button class="min-h-[48px] px-6 bg-surface text-primary border-2 border-primary rounded-lg font-label-lg flex-1 md:flex-none hover:bg-surface-container-low transition-colors">
+                Ertele
+              </button>
+    </div>
+    </div>
+    </div>
+    <!-- Unread Notification: Warning -->
+    <div class="bg-surface-container-lowest rounded-xl p-4 shadow-[0_4px_12px_rgba(0,0,0,0.08)] border border-surface-container relative overflow-hidden flex gap-4 items-start">
+    <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
+    <span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+    </div>
+    <div class="flex-1 min-w-0">
+    <div class="flex justify-between items-start gap-2 mb-1">
+    <h2 class="font-headline-md text-headline-md text-on-surface truncate">Su İçme Zamanı</h2>
+    <span class="font-label-md text-label-md text-on-surface-variant flex-shrink-0">15 dk önce</span>
+    </div>
+    <p class="font-body-lg text-body-lg text-on-surface-variant">Bugün hedeflediğiniz su miktarının gerisindesiniz. Bir bardak su içmeyi unutmayın.</p>
+    </div>
+    </div>
+    <!-- Read Notification: Info -->
+    <div class="bg-surface-container-low rounded-xl p-4 border border-surface-variant flex gap-4 items-start opacity-75">
+    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center">
+    <span class="material-symbols-outlined text-[28px]">event_available</span>
+    </div>
+    <div class="flex-1 min-w-0">
+    <div class="flex justify-between items-start gap-2 mb-1">
+    <h2 class="font-headline-md text-headline-md text-on-surface-variant truncate">Randevu Hatırlatması</h2>
+    <span class="font-label-md text-label-md text-on-surface-variant flex-shrink-0">Dün</span>
+    </div>
+    <p class="font-body-md text-body-md text-on-surface-variant">Yarın saat 14:00'te Dr. Ayşe Yılmaz ile kardiyoloji randevunuz bulunmaktadır.</p>
+    </div>
+    </div>
+    <!-- Read Notification: System -->
+    <div class="bg-surface-container-low rounded-xl p-4 border border-surface-variant flex gap-4 items-start opacity-75">
+    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center">
+    <span class="material-symbols-outlined text-[28px]">update</span>
+    </div>
+    <div class="flex-1 min-w-0">
+    <div class="flex justify-between items-start gap-2 mb-1">
+    <h2 class="font-headline-md text-headline-md text-on-surface-variant truncate">Sistem Güncellemesi</h2>
+    <span class="font-label-md text-label-md text-on-surface-variant flex-shrink-0">2 gün önce</span>
+    </div>
+    <p class="font-body-md text-body-md text-on-surface-variant">Uygulamamız daha iyi bir deneyim için güncellendi. Yeni özelliklere göz atabilirsiniz.</p>
+    </div>
+    </div>
+    </div>
+    <!-- End of list empty state illustration -->
+    <div class="flex flex-col items-center justify-center py-stack-lg text-center mt-stack-md">
+    <div class="w-24 h-24 mb-4 rounded-full bg-surface-container flex items-center justify-center text-outline">
+    <span class="material-symbols-outlined text-[48px]">done</span>
+    </div>
+    <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Başka bildirim yok</h3>
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-sm">Tüm güncel sağlık uyarılarınızı ve hatırlatmalarınızı gördünüz.</p>
+    </div>
+    </div></main></body></html>
+    
+    <!-- İlaç Hatırlatıcı Alarmı -->
+    <html lang="tr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;overflow-x:hidden;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","on-primary-fixed-variant":"#004493","primary-fixed-dim":"#adc7ff","on-secondary-fixed-variant":"#005320","tertiary-fixed":"#ffdad5","tertiary-container":"#df3429","primary-fixed":"#d8e2ff","outline-variant":"#c1c6d6","surface-container":"#efedf1","surface-bright":"#faf9fd","secondary":"#006e2c","on-tertiary-fixed":"#410001","primary-container":"#1a73e8","inverse-primary":"#adc7ff","on-secondary":"#ffffff","background":"#faf9fd","tertiary-fixed-dim":"#ffb4a9","outline":"#727785","on-surface-variant":"#414754","secondary-container":"#86f898","on-secondary-fixed":"#002108","surface-container-low":"#f4f3f7","surface-container-high":"#e9e7eb","inverse-on-surface":"#f1f0f4","on-background":"#1a1b1e","error":"#ba1a1a","error-container":"#ffdad6","on-secondary-container":"#00722f","secondary-fixed-dim":"#6ddd81","surface-container-highest":"#e3e2e6","secondary-fixed":"#89fa9b","surface":"#faf9fd","on-surface":"#1a1b1e","surface-variant":"#e3e2e6","inverse-surface":"#2f3033","on-tertiary-fixed-variant":"#930004","on-tertiary-container":"#ffffff","surface-tint":"#005bc0","on-primary-container":"#ffffff","on-error-container":"#93000a","on-error":"#ffffff","on-primary":"#ffffff","surface-dim":"#dbd9dd","on-primary-fixed":"#001a41","tertiary":"#bb1712","primary":"#005bbf"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"stack-sm":"12px","stack-lg":"48px","margin-desktop":"64px","stack-md":"24px","margin-mobile":"20px","gutter":"24px","tap-target-min":"48px"},"fontFamily":{"headline-md":["Atkinson Hyperlegible Next"],"headline-lg":["Atkinson Hyperlegible Next"],"label-md":["Atkinson Hyperlegible Next"],"display-lg":["Atkinson Hyperlegible Next"],"body-md":["Atkinson Hyperlegible Next"],"label-lg":["Atkinson Hyperlegible Next"],"body-lg":["Atkinson Hyperlegible Next"]},"fontSize":{"headline-md":["24px",{"lineHeight":"32px","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","fontWeight":"700"}],"label-md":["16px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"600"}],"display-lg":["34px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"700"}],"body-md":["18px",{"lineHeight":"28px","fontWeight":"400"}],"label-lg":["18px",{"lineHeight":"24px","letterSpacing":"0.02em","fontWeight":"600"}],"body-lg":["20px",{"lineHeight":"30px","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-margin-mobile flex items-center gap-4"><a class="w-12 h-12 flex items-center justify-center -ml-2 text-on-surface-variant" href="#" onclick="history.back()"><span class="material-symbols-outlined text-[32px]">arrow_back</span></a><span class="font-headline-md text-headline-md text-primary">Bildirimler</span></div></header><main class="relative w-full pt-20 pb-12 bg-surface min-h-screen"><div class="flex flex-col w-full h-full min-h-[calc(100vh-80px)] bg-surface relative justify-between pb-safe pt-stack-sm px-margin-mobile">
+    <!-- Content Container -->
+    <div class="flex flex-col flex-1 items-center justify-center gap-stack-lg max-w-lg mx-auto w-full">
+    <!-- Medication Image -->
+    <div class="w-48 h-48 rounded-full overflow-hidden shadow-md bg-surface-container-high relative">
+    <img alt="Tansiyon İlacı" class="w-full h-full object-cover" data-alt="A large, clear, high-contrast, photorealistic image of a single white round pill resting on a very soft, light blue gradient background, isolated for clarity, clinical and clean medical aesthetic, very high resolution macro photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBx7TbWi6SS8m8mCmDrVI17kqSeQmfgyTg_xraJaXKds3z47ZGyHVYkP-wy15tOqY6Xu2r2ZCHV1uH31PEFYZ0NW5kuR1F4x1xLr3mfs9OrT2-L5Eqd9PUBJ8QaxjT_flDZMDDHXSbEH_MechC18cgBJn26L0L7djUTADVQxNe36UW_VYkT-tYtxoIRDev9LGBuqnBcD35YLkClBJgdwCctxEjm2u3G8VGPK5WgTHlMx5RTlwBh38q"/>
+    <!-- Pulsing indicator -->
+    <div class="absolute -inset-2 bg-primary/20 rounded-full animate-pulse -z-10"></div>
+    </div>
+    <!-- Details -->
+    <div class="flex flex-col items-center text-center gap-stack-sm w-full">
+    <h1 class="font-display-lg text-display-lg text-on-surface">Tansiyon İlacı</h1>
+    <p class="font-headline-md text-headline-md text-on-surface-variant">Lisinopril 10mg</p>
+    <!-- Instructions Card -->
+    <div class="mt-stack-md w-full bg-surface-container-low rounded-xl p-stack-md shadow-sm flex items-center justify-between">
+    <div class="flex flex-col text-left">
+    <span class="font-label-lg text-label-lg text-primary">Kullanım Talimatı</span>
+    <span class="font-body-lg text-body-lg text-on-surface font-semibold mt-1">Aç karnına, 1 adet tablet</span>
+    </div>
+    <button aria-label="Talimatı Sesli Oku" class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm active:scale-95 transition-transform">
+    <span class="material-symbols-outlined text-[32px]">campaign</span>
+    </button>
+    </div>
+    </div>
+    </div>
+    <!-- Slide to Confirm Area -->
+    <div class="w-full max-w-lg mx-auto mt-stack-lg mb-margin-mobile relative">
+    <div class="w-full h-[80px] bg-primary-container rounded-full relative overflow-hidden shadow-md flex items-center" id="slider-track">
+    <!-- Background Text -->
+    <div class="w-full text-center absolute inset-0 flex items-center justify-center font-headline-md text-headline-md text-on-primary-container opacity-80 pointer-events-none select-none pl-12">
+            İlacı İçtim (Kaydır)
+          </div>
+    <!-- Draggable Knob -->
+    <div class="absolute left-2 top-2 bottom-2 w-[64px] bg-primary rounded-full flex items-center justify-center shadow-lg touch-none cursor-grab active:cursor-grabbing z-10 transition-transform duration-200 ease-out" id="slider-knob">
+    <span class="material-symbols-outlined text-[36px] text-on-primary">keyboard_double_arrow_right</span>
+    </div>
+    <!-- Success Overlay (Hidden initially) -->
+    <div class="absolute inset-0 bg-secondary flex items-center justify-center opacity-0 transition-opacity duration-300 z-20 pointer-events-none" id="success-overlay">
+    <span class="material-symbols-outlined text-[40px] text-on-secondary mr-3">check_circle</span>
+    <span class="font-headline-md text-headline-md text-on-secondary">Kaydedildi!</span>
+    </div>
+    </div>
+    </div>
+    <!-- Swipe Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const track = document.getElementById('slider-track');
+          const knob = document.getElementById('slider-knob');
+          const successOverlay = document.getElementById('success-overlay');
+          
+          let isDragging = false;
+          let startX = 0;
+          let currentX = 0;
+          let maxDrag = track.clientWidth - knob.clientWidth - 16; // 16px for padding (left-2 + right margin equivalent)
+    
+          // Recalculate maxDrag on resize
+          window.addEventListener('resize', () => {
+             maxDrag = track.clientWidth - knob.clientWidth - 16;
+          });
+    
+          function handleDragStart(e) {
+            if (successOverlay.style.opacity === '1') return;
+            isDragging = true;
+            startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+            knob.style.transition = 'none';
+          }
+    
+          function handleDragMove(e) {
+            if (!isDragging) return;
+            
+            const currentClientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+            let deltaX = currentClientX - startX;
+            
+            currentX = Math.max(0, Math.min(deltaX, maxDrag));
+            knob.style.transform = `translateX(${currentX}px)`;
+            
+            // Dynamic opacity based on drag distance
+            const progress = currentX / maxDrag;
+            track.querySelector('.text-center').style.opacity = Math.max(0.2, 0.8 - progress);
+          }
+    
+          function handleDragEnd() {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            if (currentX >= maxDrag * 0.85) {
+              // Success threshold reached
+              knob.style.transition = 'transform 0.3s ease-out';
+              knob.style.transform = `translateX(${maxDrag}px)`;
+              
+              setTimeout(() => {
+                successOverlay.style.opacity = '1';
+                // Trigger haptic feedback if supported
+                if (window.navigator && window.navigator.vibrate) {
+                  window.navigator.vibrate([50, 50, 100]);
+                }
+                
+                // Optional: Auto-return after a delay (or redirect)
+                setTimeout(() => {
+                   history.back(); // Mock return to previous screen
+                }, 1500);
+    
+              }, 300);
+    
+            } else {
+              // Snap back
+              knob.style.transition = 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+              knob.style.transform = 'translateX(0px)';
+              currentX = 0;
+              track.querySelector('.text-center').style.opacity = '0.8';
+            }
+          }
+    
+          // Touch events
+          knob.addEventListener('touchstart', handleDragStart, {passive: true});
+          document.addEventListener('touchmove', handleDragMove, {passive: true});
+          document.addEventListener('touchend', handleDragEnd);
+    
+          // Mouse events
+          knob.addEventListener('mousedown', handleDragStart);
+          document.addEventListener('mousemove', handleDragMove);
+          document.addEventListener('mouseup', handleDragEnd);
+        });
+      </script>
+    </div></main></body></html>

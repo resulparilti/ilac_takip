@@ -1,0 +1,77 @@
+---
+alwaysApply: true
+---
+
+# 📱 İlaç & Sağlık Takip Sistemi - Proje Gereksinimleri ve Kurallar (Google Play Uyumlu)
+
+Bu belge, uygulamanın mimarisini, iş kurallarını, sayfa yapılarını ve geliştirme adımlarını içerir. Cursor yapay zeka asistanı, kodlamayı yaparken bu belgedeki kurallara, UI bileşenlerine ve özellikle **Google Play Store yayın standartlarına ve güvenlik kısıtlamalarına** kesinlikle uymalıdır.
+
+## 1️⃣ Proje Özeti ve Teknolojiler
+- **Framework:** Flutter (Dart)
+- **Veritabanı:** SQLite (Yerel depolama için `sqflite` veya `drift` paketleri)
+- **Bildirimler:** `flutter_local_notifications` (Yerel) ve Firebase Cloud Messaging (FCM - Acil bildirimler için)
+- **Monetizasyon:** Google Mobile Ads (`google_mobile_ads`) - **AdMob zorunludur.**
+- **Kullanıcı Rızası (Consent):** Google User Messaging Platform (UMP) - AdMob için zorunlu GDPR/KVKK uyumluluğu.
+- **Durum Yönetimi:** Riverpod veya Provider
+
+---
+
+## 2️⃣ Ücretsiz (Free) ve Ücretli (Premium) Sürüm Farkları
+
+Uygulamanın kurgusu "Freemium" modeline dayanır. 
+
+### 🟢 Ücretsiz Versiyon (Free Tier)
+- **Reklamlar:** AdMob aktif. Alt kısımda `Banner Ad`, ana işlemlerden sonra `Interstitial Ad`. 
+- **Aktif Özellikler:** Günlük ilaç ekleme, saat bazlı takip, ilaç stok takibi, temel bildirim ayarları.
+- **Kilitli Özellikler (Paywall):** Su İçme Takibi, Acil Bildirim Sistemi, Gelişmiş İstatistikler.
+
+### 🟡 Ücretli Versiyon (Premium Tier)
+- **Reklamlar:** AdMob tamamen kapatılır (Reklamsız deneyim).
+- **Eklenen Ekstra Özellikler:** Su takibi, Acil Bildirim Sistemi (WhatsApp, SMS, Email entegrasyonlu), Detaylı analizler.
+
+---
+
+## 3️⃣ Google Play Store Onay ve Güvenlik Kriterleri (ZORUNLU)
+Uygulamanın reddedilmemesi ve güvenli olması için aşağıdaki standartlar koda yansıtılmalıdır:
+
+1. **İzin Açıklamaları (Prominent Disclosure):** İşletim sisteminin izin diyalogları (Bildirim, Arka Plan Çalışma, Alarm/Exact Alarm) çıkmadan hemen önce, uygulamanın kendi UI'ı ile bu izinlerin *neden* istendiği açıkça belirtilmelidir (Örn: "İlaç saatlerini tam vaktinde hatırlatabilmek için arka planda çalışma ve bildirim iznine ihtiyacımız var.").
+2. **Kullanıcı Verisi Silme (Data Deletion):** Ayarlar sayfasına "Tüm Verilerimi Sil" veya "Hesabı/Verileri Kapat" butonu **kesinlikle** eklenmelidir.
+3. **Gizlilik Politikası (Privacy Policy):** Uygulama içinde (Ayarlar menüsünde) tıklandığında web tarayıcısında (veya in-app webview) Gizlilik Politikası ve Kullanım Koşulları açılabilmelidir.
+4. **Reklam İzni (UMP):** Avrupa ve diğer bölgelerdeki kullanıcılar için AdMob yüklenmeden önce UMP SDK ile reklam kişiselleştirme izni (Consent Form) gösterilmelidir.
+5. **Güvenlik & Obfuscation:** Release build alınırken `ProGuard` ve `R8` aktif edilerek kod karartılmalı, hassas key'ler (API Key, AdMob ID) kod içine doğrudan yazılmamalı, `.env` dosyası üzerinden okunmalıdır.
+
+---
+
+## 4️⃣ Sayfa Sayfa Özellik Tanıtımları ve Şablonlar
+
+### 📄 Sayfa 0: Onboarding ve İzinler Sayfası (Google Play İçin Zorunlu)
+- **Amacı:** Kullanıcıya uygulamayı tanıtmak ve Google Play'in zorunlu kıldığı "İzin Öncesi Bilgilendirme (Prominent Disclosure)" ekranlarını sunmak.
+- **Zorunlu Komponentler:**
+  - `PermissionExplanationCard`: Bildirim ve arka plan izni için açıklama metni.
+  - `ConsentManagerModal`: UMP üzerinden reklam gösterim onayının alındığı popup.
+
+### 📄 Sayfa 1: Ana Ekran (İlaç Takibi - Dashboard)
+- **Zorunlu Komponentler:** `DateSelectorBar`, `MedicineCard`, `FloatingActionButton`, `AdMobBanner` (Free sürüm için).
+
+### 📄 Sayfa 2: İlaç Ekleme / Düzenleme Sayfası
+- **Zorunlu Komponentler:** `PhotoPickerWidget`, `TimePickerList`, `ConditionDropdown`, `RenewalSettingsCard`.
+
+### 📄 Sayfa 3: İlaç Yenileme Takibi (Stok Durumu)
+- **Zorunlu Komponentler:** `StatusCard` (Kırmızı/Acil, Sarı/Uyarı, Yeşil/Yeterli).
+
+### 📄 Sayfa 4: Su İçme Takibi (⚠️ Premium Özellik)
+- **Zorunlu Komponentler:** `WaterProgressBar`, `QuickAddButton`, `UpcomingRemindersList`.
+
+### 📄 Sayfa 5: İstatistik ve Geçmiş (⚠️ Premium Özellik)
+- **Zorunlu Komponentler:** `ComplianceChart`, `MissedHistoryList`.
+
+### 📄 Sayfa 6: Ayarlar, Yasal Metinler ve Acil Bildirimler
+- **Amacı:** Uygulama ayarlarını yapmak ve **Google Play yasal zorunluluklarını** barındırmak.
+- **Zorunlu Komponentler:**
+  - `ThemeSelector` ve `SizeSlider` (Tema ve boyut).
+  - `EmergencyContactSection` (⚠️ Premium): Aile bildirim ayarları.
+  - **`LegalAndSecuritySection` (YENİ - Zorunlu):** 
+    - "Gizlilik Politikası" ve "Kullanım Koşulları" yönlendirme butonları.
+    - **"Tüm Verilerimi Sıfırla / Sil" butonu** (Tıklandığında ekstra bir onay popup'ı çıkmalı ve SQLite dahil her şeyi silmelidir).
+
+---
