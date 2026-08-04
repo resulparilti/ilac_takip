@@ -22,6 +22,11 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Install Android platform 37
+        run: |
+          sdkmanager "platforms;android-37" "build-tools;35.0.0"
+          yes | sdkmanager --licenses >/dev/null || true
+
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -40,7 +45,7 @@ jobs:
         continue-on-error: true
         run: |
           set -o pipefail
-          flutter build apk --release -v 2>&1 | tee build_log.txt
+          flutter build apk --release 2>&1 | tee build_log.txt
 
       - name: Show failure excerpt
         if: steps.build_apk.outcome == 'failure'

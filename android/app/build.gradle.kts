@@ -6,7 +6,8 @@ plugins {
 
 android {
     namespace = "com.ilactakip.ilac_takip"
-    compileSdk = flutter.compileSdkVersion
+    // permission_handler_android compileSdk 37+ istiyor.
+    compileSdk = 37
     // CI'da sabit NDK sürümü yoksa build kırılmasın; plugin gerekirse Flutter seçer.
     // ndkVersion = flutter.ndkVersion
 
