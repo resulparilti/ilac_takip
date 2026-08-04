@@ -38,16 +38,15 @@ jobs:
       - name: Build APK (Release)
         run: |
           set -o pipefail
-          flutter build apk --release --stacktrace 2>&1 | tee build_log.txt
-        continue-on-error: false
+          flutter build apk --release -v 2>&1 | tee build_log.txt
 
-      - name: Show Gradle failure excerpt
+      - name: Show failure excerpt
         if: failure()
         run: |
           echo "===== FAILURE EXCERPT ====="
-          grep -n -E "FAILURE:|What went wrong|error:|Error:|Caused by:|R8|minify|NDK|AAPT|Execution failed" build_log.txt | tail -n 80 || true
-          echo "===== LAST 80 LINES ====="
-          tail -n 80 build_log.txt || true
+          grep -n -E "FAILURE:|What went wrong|error:|Error:|Caused by:|R8|minify|NDK|AAPT|Execution failed|Exception" build_log.txt | tail -n 80 || true
+          echo "===== LAST 100 LINES ====="
+          tail -n 100 build_log.txt || true
 
       - name: Upload APK Artifact
         if: success()
