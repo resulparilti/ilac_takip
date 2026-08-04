@@ -36,20 +36,42 @@ jobs:
         run: flutter pub get
 
       - name: Build APK (Release)
+        id: build_apk
+        continue-on-error: true
         run: |
           set -o pipefail
           flutter build apk --release -v 2>&1 | tee build_log.txt
 
       - name: Show failure excerpt
-        if: failure()
+        if: steps.build_apk.outcome == 'failure'
         run: |
           echo "===== FAILURE EXCERPT ====="
           grep -n -E "FAILURE:|What went wrong|error:|Error:|Caused by:|R8|minify|NDK|AAPT|Execution failed|Exception" build_log.txt | tail -n 80 || true
           echo "===== LAST 100 LINES ====="
           tail -n 100 build_log.txt || true
 
+      - name: Write summary
+        if: always()
+        run: |
+          {
+            echo "## Build summary"
+            echo
+            if [ "${{ steps.build_apk.outcome }}" = "failure" ]; then
+              echo "Build sonucu: FAILED"
+              echo
+              echo '```'
+              grep -n -E "FAILURE:|What went wrong|error:|Error:|Caused by:|R8|minify|NDK|AAPT|Execution failed|Exception" build_log.txt | tail -n 80 || true
+              echo
+              echo "--- Last 60 lines ---"
+              tail -n 60 build_log.txt || true
+              echo '```'
+            else
+              echo "Build sonucu: SUCCESS"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Upload APK Artifact
-        if: success()
+        if: steps.build_apk.outcome == 'success'
         uses: actions/upload-artifact@v4
         with:
           name: release-apk
@@ -57,9 +79,13 @@ jobs:
           if-no-files-found: error
 
       - name: Upload build log on failure
-        if: failure()
+        if: steps.build_apk.outcome == 'failure'
         uses: actions/upload-artifact@v4
         with:
           name: build-log
           path: build_log.txt
           if-no-files-found: ignore
+
+      - name: Fail job if APK build failed
+        if: steps.build_apk.outcome == 'failure'
+        run: exit 1
