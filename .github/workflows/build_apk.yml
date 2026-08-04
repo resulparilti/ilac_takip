@@ -2,8 +2,8 @@ name: Build Flutter APK
 
 on:
   push:
-    branches: [ "main", "master" ] # Kodları hangi dala gönderdiğinizde çalışacağını belirtir
-  workflow_dispatch: # GitHub panelinden manuel olarak "Run workflow" diyerek de tetikleyebilirsiniz
+    branches: [ "main", "master" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -22,9 +22,12 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.x' # Projenizin kullandığı Flutter sürümüne göre güncelleyebilirsiniz
+          flutter-version: '3.44.8'
           channel: 'stable'
           cache: true
+
+      - name: Create .env for asset bundling
+        run: cp .env.example .env
 
       - name: Install dependencies
         run: flutter pub get
@@ -37,3 +40,4 @@ jobs:
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
