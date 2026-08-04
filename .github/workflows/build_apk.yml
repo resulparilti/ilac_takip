@@ -19,6 +19,9 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -33,11 +36,31 @@ jobs:
         run: flutter pub get
 
       - name: Build APK (Release)
-        run: flutter build apk --release
+        run: |
+          set -o pipefail
+          flutter build apk --release --stacktrace 2>&1 | tee build_log.txt
+        continue-on-error: false
+
+      - name: Show Gradle failure excerpt
+        if: failure()
+        run: |
+          echo "===== FAILURE EXCERPT ====="
+          grep -n -E "FAILURE:|What went wrong|error:|Error:|Caused by:|R8|minify|NDK|AAPT|Execution failed" build_log.txt | tail -n 80 || true
+          echo "===== LAST 80 LINES ====="
+          tail -n 80 build_log.txt || true
 
       - name: Upload APK Artifact
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
           if-no-files-found: error
+
+      - name: Upload build log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build_log.txt
+          if-no-files-found: ignore

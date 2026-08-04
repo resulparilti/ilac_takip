@@ -7,7 +7,8 @@ plugins {
 android {
     namespace = "com.ilactakip.ilac_takip"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    // CI'da sabit NDK sürümü yoksa build kırılmasın; plugin gerekirse Flutter seçer.
+    // ndkVersion = flutter.ndkVersion
 
     compileOptions {
         // flutter_local_notifications için zorunlu
@@ -29,12 +30,9 @@ android {
         release {
             // Yayın öncesi kendi keystore imzanızı bağlayın.
             signingConfig = signingConfigs.getByName("debug")
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro",
-            )
+            // Önce APK üretimi; R8 sorunları ayrıştırıldıktan sonra tekrar açılır.
+            isMinifyEnabled = false
+            isShrinkResources = false
         }
     }
 }
