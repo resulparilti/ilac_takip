@@ -8,7 +8,7 @@ Yaşlı kullanıcılar için ilaç ve su hatırlatma uygulaması (Flutter).
 ## Geliştirme
 
 ```powershell
-$env:PATH = "C:\Users\RSLPRLT\flutter\bin;$env:PATH"
+$env:PATH = "C:\Users\User\flutter\bin;$env:PATH"
 flutter pub get
 flutter run
 ```
